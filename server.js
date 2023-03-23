@@ -14,18 +14,25 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/notes.html'));
-  });
-
 app.get('/api/notes', (req, res) => {
-    console.log(notesData);
-    return res.json(notesData);
+    fs.readFile('./db/db.json', 'utf8', (err,data) => {
+        if (err) {
+            console.error(err);
+          } else {
+            // Convert string into JSON object
+            const parsedNotes = JSON.parse(data);
+            res.send(parsedNotes);
+          }
+    });
 });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+  });
+  
+app.get('/notes', (req, res) => {
+      res.sendFile(path.join(__dirname, './public/notes.html'));
+    });  
 
 app.post('/api/notes', (req, res) => {
     const {title, text } = req.body;
@@ -55,21 +62,10 @@ app.post('/api/notes', (req, res) => {
                       ? console.error(writeErr)
                       : console.info('Successfully updated notes!')
                 );
+                res.send();
               }
         });
-
-        const response = {
-            status: 'success',
-            body: newNote,
-          };
-      
-          console.log(response);
-          res.status(201).json(response);
-
-    } else {
-        res.status(500).json('Error in posting note');
     }
-
 });
 
 app.listen(PORT, () => {

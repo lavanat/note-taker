@@ -1,9 +1,5 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
         "title": "Task",
         "text": "things to do",
         "review_id": "ec32"
@@ -12,11 +8,6 @@
         "title": "Do HW",
         "text": "write code",
         "review_id": "b111"
-    },
-    {
-        "title": "Fly to Hawaii",
-        "text": "get tickets",
-        "review_id": "b00f"
     },
     {
         "title": "Clean House",
@@ -34,28 +25,13 @@
         "review_id": "74e4"
     },
     {
-        "title": "Get this to work",
-        "text": "break the computer",
-        "review_id": "790c"
+        "title": "Make this work",
+        "text": "save properly",
+        "review_id": "5c2f"
     },
     {
-        "title": "Go to sleep",
-        "text": "get hw done",
-        "review_id": "d2db"
-    },
-    {
-        "title": "dfsdf",
-        "text": "sdfsdf",
-        "review_id": "28f4"
-    },
-    {
-        "title": "Go to sleep",
-        "text": "get hw done",
-        "review_id": "d2cb"
-    },
-    {
-        "title": "fdlskdjfl",
-        "text": "sdfsdfsdf",
-        "review_id": "2ec9"
+        "title": "Do classwork",
+        "text": "pay attention in class",
+        "review_id": "264a"
     }
 ]
