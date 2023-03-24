@@ -26,22 +26,6 @@ app.get('/api/notes', (req, res) => {
     });
 });
 
-app.get('/api/notes/:note_id', (req, res) => {
-    if (req.params.note_id) {
-      const noteId = req.params.note_id;
-      for (let i = 0; i < notes.length; i++) {
-        const currentNote = notes[i];
-        if (currentNote.note_id === noteId) {
-          res.json(currentNote);
-          return;
-        }
-      }
-      res.status(404).send('Note not found');
-    } else {
-      res.status(400).send('Note ID not provided');
-    }
-  });
-
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
   });
