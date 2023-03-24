@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const uuid = require('./helpers/uuid');
 const fs = require('fs');
-let notesData = require('./db/db.json')
+let notes = require('./db/db.json')
 
 const PORT = 3001;
 
@@ -26,6 +26,22 @@ app.get('/api/notes', (req, res) => {
     });
 });
 
+app.get('/api/notes/:note_id', (req, res) => {
+    if (req.params.note_id) {
+      const noteId = req.params.note_id;
+      for (let i = 0; i < notes.length; i++) {
+        const currentNote = notes[i];
+        if (currentNote.note_id === noteId) {
+          res.json(currentNote);
+          return;
+        }
+      }
+      res.status(404).send('Note not found');
+    } else {
+      res.status(400).send('Note ID not provided');
+    }
+  });
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
   });
@@ -40,7 +56,7 @@ app.post('/api/notes', (req, res) => {
         const newNote = {
             title,
             text,
-            review_id: uuid()
+            note_id: uuid()
         };
 
         fs.readFile('./db/db.json', 'utf8', (err,data) => {

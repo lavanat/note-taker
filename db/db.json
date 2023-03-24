@@ -2,36 +2,26 @@
     {
         "title": "Task",
         "text": "things to do",
-        "review_id": "ec32"
+        "note_id": "ec32"
     },
     {
         "title": "Do HW",
         "text": "write code",
-        "review_id": "b111"
+        "note_id": "b111"
     },
     {
         "title": "Clean House",
         "text": "sweep floors",
-        "review_id": "0e94"
+        "note_id": "0e94"
     },
     {
         "title": "Make dinner",
         "text": "get groceries",
-        "review_id": "1889"
+        "note_id": "1889"
     },
     {
         "title": "Finish all hw",
         "text": "write code",
-        "review_id": "74e4"
-    },
-    {
-        "title": "Make this work",
-        "text": "save properly",
-        "review_id": "5c2f"
-    },
-    {
-        "title": "Do classwork",
-        "text": "pay attention in class",
-        "review_id": "264a"
+        "note_id": "74e4"
     }
 ]
